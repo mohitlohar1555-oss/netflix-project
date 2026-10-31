@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netflix - Watch Movies & TV Shows</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#000;color:#fff}
+.hero{min-height:680px;background:linear-gradient(to bottom,rgba(0,0,0,.75),rgba(0,0,0,.55),#000),url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1920") center/cover no-repeat;border-bottom:8px solid #232323}
+nav{display:flex;justify-content:space-between;align-items:center;padding:25px 8%}
+.logo{color:#e50914;font-size:38px;font-weight:bold;letter-spacing:-2px}
+.nav-right{display:flex;gap:15px}
+select{background:#111;color:white;padding:9px 15px;border:1px solid #777;border-radius:4px}
+.signin{background:#e50914;color:white;border:0;padding:10px 20px;border-radius:4px;font-weight:bold;cursor:pointer}
+.content{text-align:center;padding:140px 20px 80px}
+.content h1{font-size:48px;font-weight:900;margin-bottom:20px}
+.content h2{font-size:24px;font-weight:normal;margin-bottom:25px}
+.content p{font-size:19px;margin-bottom:20px}
+.email-box{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.email-box input{width:350px;padding:18px;background:rgba(20,20,20,.8);border:1px solid #777;border-radius:4px;color:white;font-size:16px}
+.email-box button{background:#e50914;color:white;border:0;padding:15px 25px;font-size:21px;font-weight:bold;border-radius:4px;cursor:pointer}
+section{padding:55px 8%;border-bottom:8px solid #232323}
+section h2{font-size:28px;margin-bottom:25px}
+.movies{display:flex;gap:20px;overflow-x:auto;padding:10px 0 20px}
+.movie{min-width:190px;height:270px;border-radius:8px;overflow:hidden;transition:.3s;position:relative;cursor:pointer}
+.movie:hover{transform:scale(1.08)}
+.movie img{width:100%;height:100%;object-fit:cover}
+.movie span{position:absolute;bottom:0;left:0;width:100%;padding:15px 8px;background:linear-gradient(transparent,#000);font-size:17px;font-weight:bold}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.feature{background:linear-gradient(135deg,#192044,#30152f);padding:35px;border-radius:12px;min-height:180px}
+.feature h3{font-size:24px;margin-bottom:15px}
+.feature p{color:#ddd;line-height:1.6}
+footer{padding:50px 8%;color:#aaa}
+footer p{margin-bottom:20px}
+footer a{color:#aaa}
+@media(max-width:650px){
+.content{padding-top:100px}.content h1{font-size:32px}.content h2{font-size:19px}
+.features{grid-template-columns:1fr}.logo{font-size:27px}nav{padding:20px}
+.movie{min-width:150px;height:220px}.email-box input{width:100%}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+<nav>
+<div class="logo">NETFLIX</div>
+<div class="nav-right">
+<select aria-label="Language"><option>English</option><option>हिन्दी</option></select>
+<button class="signin" onclick="alert('Sign In page coming soon!')">Sign In</button>
+</div>
+</nav>
+<div class="content">
+<h1>Unlimited movies, TV shows and more</h1>
+<h2>Watch anywhere. Cancel anytime.</h2>
+<p>Ready to watch? Enter your email to create or restart your membership.</p>
+<div class="email-box">
+<input type="email" id="email" placeholder="Email address" aria-label="Email address">
+<button onclick="getStarted()">Get Started ❯</button>
+</div>
+</div>
+</header>
+<section>
+<h2>Trending Now</h2>
+<div class="movies">
+<div class="movie"><img src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" alt="Featured movie"><span>01. Movies</span></div>
+<div class="movie"><img src="https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg" alt="Action movie"><span>02. Action</span></div>
+<div class="movie"><img src="https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg" alt="Adventure movie"><span>03. Adventure</span></div>
+<div class="movie"><img src="https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgKnONONX.jpg" alt="Animated movie"><span>04. Animation</span></div>
+<div class="movie"><img src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg" alt="Fantasy movie"><span>05. Fantasy</span></div>
+</div>
+</section>
+<section>
+<h2>More Reasons to Join</h2>
+<div class="features">
+<div class="feature"><h3>Enjoy on your TV</h3><p>Watch on Smart TVs, PlayStation, Xbox, Chromecast and more.</p></div>
+<div class="feature"><h3>Download your shows</h3><p>Save your favourites easily and always have something to watch.</p></div>
+<div class="feature"><h3>Watch everywhere</h3><p>Stream unlimited movies and TV shows on your phone, tablet and laptop.</p></div>
+<div class="feature"><h3>Create profiles for kids</h3><p>Send kids on adventures with their favourite characters.</p></div>
+</div>
+</section>
+<footer>
+<p>Questions? Call 000-800-919-1743</p>
+<p><a href="#">FAQ</a> | <a href="#">Help Centre</a> | <a href="#">Terms of Use</a> | <a href="#">Privacy</a></p>
+<p>Netflix Clone Project | Created for HTML &amp; CSS Practice</p>
+</footer>
+<script>
+function getStarted(){
+ const email=document.getElementById("email").value.trim();
+ if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+  alert("Please enter a valid email address.");
+ }else{
+  alert("Welcome! Email entered: "+email);
+ }
+}
+</script>
+</body>
+</html>
